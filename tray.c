@@ -505,9 +505,12 @@ ShowTrayIcon()
     if (Shell_NotifyIcon(NIM_SETVERSION, &ni))
     {
         /* create a custom tooltip for the tray */
+        /*
         traytip = CreateWindowEx(0, TOOLTIPS_CLASS, NULL, WS_POPUP |TTS_ALWAYSTIP,
                                  CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
                                  o.hWnd, NULL, o.hInstance, NULL);
+        */
+        traytip = NULL;
         if (!traytip) /* revert the version back so that we can use legacy ni.szTip for tip text */
         {
             ni.uVersion = 0;
